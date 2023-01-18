@@ -1,6 +1,6 @@
 This is a sample application which shows how to construct an area sush as polygon, polyline, circle, rectangle region inside google maps and compute its area, find the center get all points using angular google maps component.
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
+![alt text](https://github.com/nawfalajli/angular-agm-example/blob/master/agm-example.png?raw=true)
 
 # Agm 
 
