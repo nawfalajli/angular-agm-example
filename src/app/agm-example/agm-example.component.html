@@ -1,0 +1,64 @@
+<div class="agm-container">
+  <h3>Angular Google Maps (Polygon, Rectangle, Circle, Polyline)</h3>
+  <agm-map [zoom]="12" [latitude]="lat" [longitude]="lng" (mapReady)="onMapReady($event)">
+    <agm-marker *ngIf="getres" [latitude]="centerpointArr.lat" [longitude]="centerpointArr.lng" [iconUrl]="markerIcon">
+      <agm-info-window [isOpen]="true" [latitude]="centerpointArr.lat" [longitude]="centerpointArr.lng">
+        {{drawType}} center <br />
+        <br />
+        <li>lat : {{centerpointArr.lat}}</li>
+        <li>lng : {{centerpointArr.lng}}</li>
+        <li *ngIf="drawType == 'polygon' ">polygone area : {{ selectedArea }} m <sup>2</sup>
+        </li>
+        <br />
+        <div style="text-align-last: center;">
+          <button mmat-flat-button color="warn" (click)='deleteSelectedShape()'> DELETE </button>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+  <br />
+  <!--*ngIf="getres"-->
+  <div>
+    <mat-card style="text-transform:uppercase;">
+      <span *ngIf="drawType">{{drawType}}</span>
+      <span *ngIf="!drawType">Draw your area</span>
+      <button *ngIf="drawType" (click)='deleteSelectedShape()' style="float: right;"> CLEAR </button>
+    </mat-card>
+    <br />
+    <mat-card>
+      <span>I : Points </span>
+    </mat-card>
+    <mat-list role="list">
+      <mat-list-item role="listitem" *ngIf="!getres"> Point_ ... </mat-list-item>
+      <mat-list-item role="listitem" *ngFor="let point of pointList; let index = index;"> Point_{{index +1 }} : {{ point.lat }}, {{ point.lng }}
+      </mat-list-item>
+    </mat-list>
+    <mat-card>
+      <span>II : Path </span>
+    </mat-card>
+    <mat-list>
+      <pre>
+				<br/>
+        Path = {{ pathArray }}
+       
+			</pre>
+    </mat-list>
+    <mat-card>
+      <span>III : Calculat center </span>
+    </mat-card>
+    <mat-list>
+      <pre>
+				<br/>
+        Center_point = {{ centerpoint }} 
+      
+			</pre>
+    </mat-list>
+    <mat-card *ngIf="drawType == 'polygon' || !drawType">
+      <span>IV : Calculat Area (m <sup>2</sup>) </span>
+    </mat-card>
+    <mat-list role="list" *ngIf="drawType == 'polygon' || !drawType">
+      <mat-list-item role="listitem"> Selected Area : {{ selectedArea }} m <sup>2</sup>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
