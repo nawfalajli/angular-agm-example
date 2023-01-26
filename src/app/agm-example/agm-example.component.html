@@ -18,7 +18,7 @@
   </agm-map>
   <br />
   <!--*ngIf="getres"-->
-  <div>
+  <div >
     <mat-card style="text-transform:uppercase;">
       <span *ngIf="drawType">{{drawType}}</span>
       <span *ngIf="!drawType">Draw your area</span>
@@ -29,8 +29,10 @@
       <span>I : Points </span>
     </mat-card>
     <mat-list role="list">
-      <mat-list-item role="listitem" *ngIf="!getres"> Point_ ... </mat-list-item>
-      <mat-list-item role="listitem" *ngFor="let point of pointList; let index = index;"> Point_{{index +1 }} : {{ point.lat }}, {{ point.lng }}
+     
+        <mat-list-item role="listitem" *ngIf="!getres" class="matlist"> Point_ ... </mat-list-item>
+        <mat-list-item role="listitem" *ngFor="let point of pointList; let index = index;" class="matlist"> Point_{{index +1 }} : {{ point.lat }}, {{ point.lng }}
+       
       </mat-list-item>
     </mat-list>
     <mat-card>
