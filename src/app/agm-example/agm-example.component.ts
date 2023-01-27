@@ -37,8 +37,14 @@ export class AgmExampleComponent implements OnInit {
         drawingModes: ["polygon", "rectangle", "circle", "polyline"],
       },
       polygonOptions: {
-        draggable: true,
+        fillColor: "#ffffff",
+        strokeColor: "#ffffff",
+        fillOpacity: 0.4,
+        strokeWeight: 1.6,   
+        clickable: true,
         editable: true,
+        draggable: false,
+        zIndex: 1,
       },
       drawingMode: google.maps.drawing.OverlayType.POLYGON,
     };
